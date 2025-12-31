@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+	<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAbaljhrGA9-6NxiqzMt8J4uIIVTPKl0AY",
+        authDomain: "ecommerce-c7b04.firebaseapp.com",
+        projectId: "ecommerce-c7b04",
+        storageBucket: "ecommerce-c7b04.firebasestorage.app",
+        messagingSenderId: "137530715320",
+        appId: "1:137530715320:web:3ba98ab375bdff8e9c184d",
+        measurementId: "G-6KPQZ6WTJC"
+    };
+    
+    // Initialize
+    firebase.initializeApp(firebaseConfig);
+    // This variable MUST be available for script.js
+    var db = firebase.firestore(); 
+	</script>
+
+	<script src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>My Store</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-link">Cart (<span id="cart-counter">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h2>Welcome to My Store!</h2>
+            <p>Find the best products at the best prices.</p>
+            <a href="products.html" class="cta-button">Shop Now</a>
+        </section>
+
+        <section class="products-section">
+            <h3>Featured Products</h3>
+            <div class="product-grid">
+   
+			</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Store. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

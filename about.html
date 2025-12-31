@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - My Awesome Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAbaljhrGA9-6NxiqzMt8J4uIIVTPKl0AY",
+        authDomain: "ecommerce-c7b04.firebaseapp.com",
+        projectId: "ecommerce-c7b04",
+        storageBucket: "ecommerce-c7b04.firebasestorage.app",
+        messagingSenderId: "137530715320",
+        appId: "1:137530715320:web:3ba98ab375bdff8e9c184d",
+        measurementId: "G-6KPQZ6WTJC"
+    };
+    
+    // Initialize
+    firebase.initializeApp(firebaseConfig);
+    // This variable MUST be available for script.js
+    var db = firebase.firestore(); 
+    </script>
+
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>My Store</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-link">Cart (<span id="cart-counter">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h2>About Our Store</h2>
+            <p>Welcome to My Awesome Store! We're a passionate team dedicated to bringing you the best products with a focus on quality, customer service, and uniqueness. We started this journey in 2024 with a vision to create a shopping experience that is both simple and delightful.</p>
+            <p>Our commitment to you is to always provide exceptional value and a personal touch. We hope you enjoy browsing our collection as much as we enjoy creating it for you.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

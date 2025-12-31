@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Add Products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <script>
+        // Use your SAME firebaseConfig from index.html
+        const firebaseConfig = { 
+            apiKey: "AIzaSyAbaljhrGA9-6NxiqzMt8J4uIIVTPKl0AY",
+            authDomain: "ecommerce-c7b04.firebaseapp.com",
+            projectId: "ecommerce-c7b04",
+            storageBucket: "ecommerce-c7b04.firebasestorage.app",
+            messagingSenderId: "137530715320",
+            appId: "1:137530715320:web:3ba98ab375bdff8e9c184d",
+            measurementId: "G-6KPQZ6WTJC"
+         };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+</head>
+<body>
+    <section class="container" style="padding: 50px;">
+        <h2>Add New Product</h2>
+        <form id="add-product-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
+            <input type="text" id="p-id" placeholder="Product ID (e.g., p001)" required>
+            <input type="text" id="p-name" placeholder="Product Name" required>
+            <input type="number" id="p-price" placeholder="Price" step="0.01" required>
+            <input type="text" id="p-image" placeholder="Image URL (e.g., images/shoe1.jpg)" required>
+            <button type="submit" class="cta-button">Upload Product to Database</button>
+        </form>
+        <div id="status-msg"></div>
+    </section>
+
+    <script>
+        const productForm = document.getElementById('add-product-form');
+        productForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newProduct = {
+                id: document.getElementById('p-id').value,
+                name: document.getElementById('p-name').value,
+                price: parseFloat(document.getElementById('p-price').value),
+                image: document.getElementById('p-image').value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            try {
+                // Save to a new collection called "products"
+                await db.collection("products").doc(newProduct.id).set(newProduct);
+                document.getElementById('status-msg').innerHTML = "<p style='color:green;'>Product Added Successfully!</p>";
+                productForm.reset();
+            } catch (error) {
+                console.error("Error adding product: ", error);
+            }
+        });
+    </script>
+</body>
+</html>
